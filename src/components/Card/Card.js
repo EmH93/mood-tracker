@@ -1,25 +1,25 @@
 import React from 'react';
-import { Avatar, Card} from 'antd';
+import { Avatar, Card, Col} from 'antd';
+import './Card.css'
 const { Meta } = Card;
 
 
-function MoodCard(){
+function MoodCard(props){
   return(
-    <>
-    <Card
-        style={{
-          width: 300,
-          marginTop: 16,
-        }}
-       
-      >
-        <Meta
+ 
+
+   
+     <Col span={8}>
+       <Card  className='card' title={props.title} bordered={true}>
+       <Meta
           avatar={<Avatar src="https://joesch.moe/api/v1/random?key=1" />}
           title="Card title"
           description="This is the description"
         />
-      </Card>
-    </>
+       </Card>
+     </Col>
+    
+  
   )
 };
 
