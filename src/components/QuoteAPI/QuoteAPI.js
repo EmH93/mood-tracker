@@ -1,5 +1,5 @@
-import React from 'react';
 import React, { useState, useEffect } from 'react';
+import { motion } from 'framer-motion';
 import api from './apiCall';
 
 function QuoteAPI() {
@@ -23,10 +23,10 @@ function QuoteAPI() {
       }, [])
     
       return (
-          <div>
+        <motion.div key={responseData} animate={{ x: 100 }} transition={{ ease: "easeOut", duration: 2 }} >
               <h2>{responseData.quote}</h2>
              <h3>{responseData.author}</h3>
-          </div>
+          </motion.div>
     );
   }
   
