@@ -8,17 +8,15 @@ function QuoteAPI() {
         "category": "present moment"
       })
 
-      const options = {
-        method: 'GET',
-        headers: {
-            'X-RapidAPI-Key': 'ea79e815demsh39afca19d7b82b7p11e276jsndfd1a142b12b',
-            'X-RapidAPI-Host': 'metaapi-mindfulness-quotes.p.rapidapi.com'
-        }
-    };
-    
-
 //Makes call to API every 10 seconds to replace quote on home screen    
       useEffect(() => {
+        const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': 'ea79e815demsh39afca19d7b82b7p11e276jsndfd1a142b12b',
+                'X-RapidAPI-Host': 'metaapi-mindfulness-quotes.p.rapidapi.com'
+            }
+        };
         setInterval(() => {
             fetch('https://metaapi-mindfulness-quotes.p.rapidapi.com/v1/mindfulness', options)
             .then(response => response.json())
