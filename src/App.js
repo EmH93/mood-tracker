@@ -8,17 +8,16 @@ import './App.css';
 
 function App() {
   return (
-    
       <Router>
-        <Navbar>
+        <Navbar />
+        <div>
           <Routes>
             <Route path="/" element={<Home/>} />
             <Route path="/MoodDiary" element={<MoodDiary/>} />
             <Route path="/Resources" element={<Resources/>} />
           </Routes>
-        </Navbar>
-    </Router>
-    
+        </div>
+      </Router> 
   );
 }
 
