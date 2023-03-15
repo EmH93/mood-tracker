@@ -40,8 +40,9 @@ function Form() {
                   :selectedMood === "option3"
                   ? "selectedOption3": ""
               }`}
-            id="selectInput"
+            id= "selectInput"
             required
+    
             value={selectedMood}
             onChange={(event) => setSelectedMood(event.target.value)}
           >
