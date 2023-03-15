@@ -19,7 +19,7 @@ function QuoteAPI() {
         .catch((error) => {
             console.log(error)
         })
-      }, 10000);
+      }, 8000);
       }, [])
     
       return (
