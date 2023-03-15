@@ -1,11 +1,8 @@
 import React from "react";
+import Form from "../../components/Form/Form";
 
-function MoodDiary (){
-    return (
-        <div>
-            Mood Diary Page
-        </div>
-    )
+function MoodDiary() {
+  return <Form />;
 }
 
 export default MoodDiary;
