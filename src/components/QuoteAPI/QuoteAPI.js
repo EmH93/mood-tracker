@@ -1,31 +1,32 @@
 import React from 'react';
-import {useState, useEffect} from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from 'react';
+import api from './apiCall';
 
 function QuoteAPI() {
-    const options = {
-      method: 'GET',
-      url: 'https://metaapi-mindfulness-quotes.p.rapidapi.com/v1/mindfulness',
-      headers: {
-        'X-RapidAPI-Key': '78e5609727msh1ba34c0ebc625dcp184ea7jsn9d56a3cb8dc5',
-        'X-RapidAPI-Host': 'metaapi-mindfulness-quotes.p.rapidapi.com'
-      }
-    };
-    
-    useEffect(() => {
+    let [responseData, setResponseData] = useState({
+        "quote": "The present moment is the only time over which we have dominion.",
+        "author": "Thích Nhất Hạnh",
+        "category": "present moment"
+      })
+//Makes call to API every 10 seconds to replace quote on home screen    
+      useEffect(() => {
         setInterval(() => {
-        axios.request(options).then(function (response) {
-          console.log(response.data.quote);
-        }).catch(function (error) {
-          console.error(error);
-        });
+        api.getData()
+        .then((response)=>{
+            setResponseData(response.data)
+            console.log(response.data)
+        })
+        .catch((error) => {
+            console.log(error)
+        })
       }, 10000);
-      }, []);
-  
-    return (
-      <div className="App">
-        <h1>Text test</h1>
-      </div>
+      }, [])
+    
+      return (
+          <div>
+              <h2>{responseData.quote}</h2>
+             <h3>{responseData.author}</h3>
+          </div>
     );
   }
   
