@@ -29,14 +29,12 @@ function QuoteAPI() {
     }, [])
     
       return (
-      <div id="quoteWrapper">
         <div id="quoteDiv">
           <motion.div key={responseData} variants={variants} animate={'show'} initial="hide" >
                 <h2>{responseData.quote}</h2>
                 <h3>{responseData.author}</h3>
             </motion.div>
         </div>
-      </div>
     );
   };
 
