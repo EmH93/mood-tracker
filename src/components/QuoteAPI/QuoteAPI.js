@@ -33,8 +33,8 @@ function QuoteAPI() {
         <div className='container-fluid'>
         <div id="quoteDiv">
           <motion.div key={responseData} variants={variants} animate={'show'} initial="hide" >
-                <h2>"{responseData.quote}"</h2>
-                <h3>{responseData.author}</h3>
+                <h2 id='quoteText'>"{responseData.quote}"</h2>
+                <h3 id='authorText'>{responseData.author}</h3>
             </motion.div>
         </div>
       </div>
