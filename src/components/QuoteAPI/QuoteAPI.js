@@ -10,7 +10,7 @@ function QuoteAPI() {
         "category": "present moment"
       })
 
-//Makes call to API every 8 seconds to replace quote on home screen    
+//Makes call to API every 12 seconds to replace quote on home screen    
      useEffect(() => {
         const options = {
             method: 'GET',
