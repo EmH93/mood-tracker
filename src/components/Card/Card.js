@@ -9,11 +9,11 @@ function MoodCard(props){
  
 
    
-     <Col span={8}>
-       <Card  className='card' title={props.title} bordered={true}>
+     <Col span={4}>
+       <Card  className='card' title={props.date} bordered={true}>
        <Meta
           avatar={<Avatar src="https://joesch.moe/api/v1/random?key=1" />}
-          title="Card title"
+          title={props.title}
           description="This is the description"
         />
        </Card>
