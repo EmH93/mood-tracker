@@ -2,22 +2,9 @@ import React from 'react';
 import './Form.css';
 function Form(props) {
 
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    let moodObj= JSON.parse(localStorage.getItem('moodDiary') || '{}')
-    console.log(typeof moodObj)
-  
-    moodObj[props.date]=props.mood
-    
-    localStorage.setItem('moodDiary',JSON.stringify(moodObj))
-    console.log("form.js " + JSON.stringify(moodObj))
-    props.setDate('');
-    props.setMood('');
-  };
-
   return (
     <div>
-      <form className="form" style={{ maxWidth: "400px" }} onSubmit={handleFormSubmit}>
+      <form className="form" style={{ maxWidth: "400px" }} onSubmit={props.handleFormSubmit}>
         <div className="form-group">
           <label htmlFor="dateInput">Select a date:</label>
           <input
