@@ -23,6 +23,7 @@ function QuoteAPI() {
             fetch('https://metaapi-mindfulness-quotes.p.rapidapi.com/v1/mindfulness', options)
             .then(response => response.json())
             .then(function (response) {
+                console.log("rendered");
                 setResponseData(response)})
             .catch(err => console.error(err));
       }, 12000);
