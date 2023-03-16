@@ -25,7 +25,7 @@ function QuoteAPI() {
             .then(function (response) {
                 setResponseData(response)})
             .catch(err => console.error(err));
-      }, 8000);
+      }, 12000);
     }, [])
     
       return (
