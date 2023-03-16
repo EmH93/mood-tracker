@@ -1,17 +1,29 @@
 import React, { useState, useEffect } from "react";
 import MoodCard from "../../components/Card/Card";
-import { Row} from 'antd';
+import Form from "../../components/FormFolder/Form";
+import {Row} from 'antd';
 
 function MoodDiary(){
-    // const [mood, ]
+    const [mood, setMood] = useState("");
+    const [title, setTitle] = useState("");
+    const moods = localStorage.getItem("moodDiary")
+
+    useEffect(()=>{
+       
+        
+    })
 
     return (
-        <Row gutter={16}>
-            <MoodCard/>
-            <MoodCard/>
-            <MoodCard/>
-
-        </Row>
+        <div>
+             <Form />
+            <Row gutter={16}>
+                <MoodCard/>
+                
+            </Row>
+                
+            
+        </div>
+       
 
     )
 }

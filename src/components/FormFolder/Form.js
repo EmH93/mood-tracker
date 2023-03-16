@@ -1,15 +1,24 @@
-import React, { useState } from "react";
-import "./Form.css";
+import React, {useState } from 'react';
+import './Form.css';
 
 function Form() {
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedMood, setSelectedMood] = useState("");
-
+  const [selectedDate, setSelectedDate] = useState('');
+  const [selectedMood, setSelectedMood] = useState('');
+  
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem(selectedDate, selectedMood);
-    setSelectedDate("");
-    setSelectedMood("");
+    let moodObj= JSON.parse(localStorage.getItem('moodDiary') || '[]')
+    console.log(typeof moodObj)
+    const mood = {
+      date: selectedDate,
+      currMood: selectedMood
+    }
+    
+    moodObj.push(mood)
+    
+    localStorage.setItem('moodDiary',JSON.stringify(moodObj))
+    setSelectedDate('');
+    setSelectedMood('');
   };
 
   return (
@@ -38,17 +47,23 @@ function Form() {
                   : selectedMood === "option2"
                   ? "selectedOption2"
                   :selectedMood === "option3"
-                  ? "selectedOption3": ""
+                  ? "selectedOption3"
+                  : selectedMood === "option4"
+                  ? "selectedOption4" 
+                  :selectedMood === "option5"
+                  ? "selectedOption5" : ""
               }`}
             id="selectInput"
             required
             value={selectedMood}
             onChange={(event) => setSelectedMood(event.target.value)}
           >
-            <option value="">-- Select an option --</option>
+            <option value="" >-- Select an option --</option>
             <option value="Stressed">Stressed</option>
             <option value="Sad">Sad</option>
             <option value="Chilled">Chilled</option>
+            <option value="Happy">Happy</option>
+            <option value="Overjoyed">Overjoyed</option>
           </select>
         </div>
 
