@@ -1,0 +1,15 @@
+#quoteDiv {
+    padding: 20px 30px 20px 30px;
+    text-align: center;
+    width: 650px;
+    margin: auto;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+h3 {
+    font-size: 26px;
+    color: rgb(54, 81, 170);
+}
