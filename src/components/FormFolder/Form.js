@@ -7,14 +7,10 @@ function Form() {
   
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    let moodObj= JSON.parse(localStorage.getItem('moodDiary') || '[]')
+    let moodObj= JSON.parse(localStorage.getItem('moodDiary') || '{}')
     console.log(typeof moodObj)
-    const mood = {
-      date: selectedDate,
-      currMood: selectedMood
-    }
-    
-    moodObj.push(mood)
+  
+    moodObj[selectedDate]=selectedMood
     
     localStorage.setItem('moodDiary',JSON.stringify(moodObj))
     setSelectedDate('');
