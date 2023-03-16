@@ -1,9 +1,10 @@
 import React from "react";
+import Pexels from "../../components/PexelsAPI/Pexels";
 
 function Resources (){
     return (
         <div>
-            Resources Page
+           <Pexels />
         </div>
     )
 }
