@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import 'bootstrap/dist/css/bootstrap.css';
+import './Quote.css';
 
 function QuoteAPI() {
     let [responseData, setResponseData] = useState({
@@ -8,8 +10,8 @@ function QuoteAPI() {
         "category": "present moment"
       })
 
-//Makes call to API every 10 seconds to replace quote on home screen    
-      useEffect(() => {
+//Makes call to API every 8 seconds to replace quote on home screen    
+     useEffect(() => {
         const options = {
             method: 'GET',
             headers: {
@@ -22,17 +24,35 @@ function QuoteAPI() {
             .then(response => response.json())
             .then(function (response) {
                 setResponseData(response)})
-            .then(response => console.log(response))
             .catch(err => console.error(err));
       }, 8000);
     }, [])
     
       return (
-        <motion.div key={responseData} animate={{ x: 100 }} transition={{ ease: "easeOut", duration: 2 }} >
-              <h2>{responseData.quote}</h2>
-             <h3>{responseData.author}</h3>
-          </motion.div>
+        <div className='container-fluid'>
+        <div id="quoteDiv">
+          <motion.div key={responseData} variants={variants} animate={'show'} initial="hide" >
+                <h2>"{responseData.quote}"</h2>
+                <h3>{responseData.author}</h3>
+            </motion.div>
+        </div>
+      </div>
     );
-  }
+  };
+
+  export const variants = {
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        ease: "easeOut",
+        duration: 0.3
+      }
+    },
+    hide: {
+      y: -20,
+      opacity: 0
+    }
+  };
   
   export default QuoteAPI;

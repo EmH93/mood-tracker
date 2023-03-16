@@ -1,0 +1,37 @@
+#jumboWrapper {
+    padding: 190px 0px 190px 0px;
+    text-align: center;
+    margin-bottom: 40px;
+    background-image: url('./assets/backgroundv5.png');
+    background-size: cover;
+    height: 600px;
+}
+
+p {
+    font-weight: 600 !important;
+    font-size: 28px !important;
+    color: #ffffff;
+    text-shadow: 2px 2px rgb(68, 68, 68);
+}
+
+button {
+    box-shadow: 10px 10px 8px rgb(112, 112, 112, 0.8);
+}
+
+
+h1 {
+    font-weight: 700 !important;
+    font-size: 65px !important;
+    color: #ffffff;
+    text-shadow: 2px 2px rgb(68, 68, 68);
+}
+
+@media only screen and (max-width: 600px) {
+    p {
+        font-size: 18px !important;
+    }
+
+    h1 {
+        font-size: 45px !important;
+    }
+  };
