@@ -1,20 +1,18 @@
-import React, {useState } from 'react';
+import React from 'react';
 import './Form.css';
+function Form(props) {
 
-function Form() {
-  const [selectedDate, setSelectedDate] = useState('');
-  const [selectedMood, setSelectedMood] = useState('');
-  
   const handleFormSubmit = (event) => {
     event.preventDefault();
     let moodObj= JSON.parse(localStorage.getItem('moodDiary') || '{}')
     console.log(typeof moodObj)
   
-    moodObj[selectedDate]=selectedMood
+    moodObj[props.date]=props.mood
     
     localStorage.setItem('moodDiary',JSON.stringify(moodObj))
-    setSelectedDate('');
-    setSelectedMood('');
+    console.log("form.js " + JSON.stringify(moodObj))
+    props.setDate('');
+    props.setMood('');
   };
 
   return (
@@ -29,8 +27,8 @@ function Form() {
             id="dateInput"
             placeholder="YYYY-MM-DD"
             required
-            value={selectedDate}
-            onChange={(event) => setSelectedDate(event.target.value)}
+            value={props.date}
+            onChange={(event) => props.setDate(event.target.value)}
           />
         </div>
 
@@ -38,21 +36,21 @@ function Form() {
           <label htmlFor="selectInput">Select mood:</label>
           <select
               className={`form-control ${
-                selectedMood === "option1"
+                props.mood === "option1"
                   ? "selectedOption1"
-                  : selectedMood === "option2"
+                  : props.mood=== "option2"
                   ? "selectedOption2"
-                  :selectedMood === "option3"
+                  :props.mood === "option3"
                   ? "selectedOption3"
-                  : selectedMood === "option4"
+                  : props.mood === "option4"
                   ? "selectedOption4" 
-                  :selectedMood === "option5"
+                  :props.mood === "option5"
                   ? "selectedOption5" : ""
               }`}
             id="selectInput"
             required
-            value={selectedMood}
-            onChange={(event) => setSelectedMood(event.target.value)}
+            value={props.mood}
+            onChange={(event) => props.setMood(event.target.value)}
           >
             <option value="" >-- Select an option --</option>
             <option value="Stressed">Stressed</option>
