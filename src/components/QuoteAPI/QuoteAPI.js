@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import 'bootstrap/dist/css/bootstrap.css';
 import './Quote.css';
 
 function QuoteAPI() {
@@ -10,7 +11,7 @@ function QuoteAPI() {
       })
 
 //Makes call to API every 8 seconds to replace quote on home screen    
-      useEffect(() => {
+     /* useEffect(() => {
         const options = {
             method: 'GET',
             headers: {
@@ -26,15 +27,17 @@ function QuoteAPI() {
             .then(response => console.log(response))
             .catch(err => console.error(err));
       }, 8000);
-    }, [])
+    }, [])*/
     
       return (
+        <div className='container-fluid'>
         <div id="quoteDiv">
           <motion.div key={responseData} variants={variants} animate={'show'} initial="hide" >
                 <h2>{responseData.quote}</h2>
                 <h3>{responseData.author}</h3>
             </motion.div>
         </div>
+      </div>
     );
   };
 
