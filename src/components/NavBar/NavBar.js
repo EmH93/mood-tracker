@@ -1,14 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import './style.css';
 
-
 function Navbar() {
-  return (
-    <nav className="navbar navbar-expand-lg sticky-top custom-nav">
+  
+  const [isNavCollapsed, setIsNavCollapsed] = useState(true);
+    
+  const handleNavCollapse = () => setIsNavCollapsed(!isNavCollapsed);
 
-      <div className="collapse navbar-collapse" id="navlist">
-        <ul className="navbar-nav">
+  return (
+    <nav className="navbar navbar-expand-sm navbar-inverse custom-nav">
+        <div class="navbar-header">
+        <button class="custom-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navlist" aria-controls="navlist" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+        </div>
+
+       <div className={`${isNavCollapsed ? 'collapse' : ''} navbar-collapse`} id="navlist">
+        <ul className="navbar-nav mx-auto">
           <li className="nav-item">
             <NavLink
               to="/"
@@ -41,7 +50,7 @@ function Navbar() {
             </NavLink>
           </li>
         </ul>
-      </div>
+        </div>
     </nav>
   );
 }
