@@ -8,7 +8,7 @@ function MoodCard(props) {
 <div>
     <Col span={4}>
       <Card
-        className={`card ${
+        id="moodCard" className={`card ${
           props.title === "Stressed"
             ? "selectedOption1"
             : props.title === "Sad"
