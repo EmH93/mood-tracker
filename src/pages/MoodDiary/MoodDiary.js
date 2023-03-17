@@ -4,6 +4,7 @@ import Form from "../../components/FormFolder/Form";
 import "./MoodDiary.css";
 import { Row } from "antd";
 import getKeyByValue from "../../utils/getKeyHook";
+import ClearButton from "../../components/ClearAllBtn/ClearAllBtn";
 
 function MoodDiary() {
   const [selectedDate, setSelectedDate] = useState("");
@@ -59,6 +60,9 @@ function MoodDiary() {
               return <MoodCard title={item} date={objKey} />;
             })}
           </Row>
+        
+          <ClearButton/> 
+        
     </div>
   );
 }
