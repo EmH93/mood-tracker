@@ -1,22 +1,10 @@
-import React, { useState } from "react";
-import moment from 'moment';
-import "./Form.css";
-
-function Form() {
-  const [selectedDate, setSelectedDate] = useState("");
-  const [selectedMood, setSelectedMood] = useState("");
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    var date = moment(selectedDate).format('DD/MM/YYYY');
-    localStorage.setItem(date, selectedMood);
-    setSelectedDate("");
-    setSelectedMood("");
-  };
+import React from 'react';
+import './Form.css';
+function Form(props) {
 
   return (
     <div>
-      <form className="form" style={{ maxWidth: "400px" }} onSubmit={handleFormSubmit}>
+      <form className="form" style={{ maxWidth: "400px" }} onSubmit={props.handleFormSubmit}>
         <div className="form-group">
           <label htmlFor="dateInput">Select a date:</label>
           <input
@@ -26,8 +14,8 @@ function Form() {
             id="dateInput"
             placeholder="YYYY-MM-DD"
             required
-            value={selectedDate}
-            onChange={(event) => setSelectedDate(event.target.value)}
+            value={props.date}
+            onChange={(event) => props.setDate(event.target.value)}
           />
         </div>
 
@@ -35,23 +23,28 @@ function Form() {
           <label htmlFor="selectInput">Select mood:</label>
           <select
               className={`form-control ${
-                selectedMood === "Stressed"
+                props.mood === "option1"
                   ? "selectedOption1"
-                  : selectedMood === "Sad"
+                  : props.mood=== "option2"
                   ? "selectedOption2"
-                  :selectedMood === "Chilled"
-                  ? "selectedOption3": ""
+                  :props.mood === "option3"
+                  ? "selectedOption3"
+                  : props.mood === "option4"
+                  ? "selectedOption4" 
+                  :props.mood === "option5"
+                  ? "selectedOption5" : ""
               }`}
             id= "selectInput"
             required
-    
-            value={selectedMood}
-            onChange={(event) => setSelectedMood(event.target.value)}
+            value={props.mood}
+            onChange={(event) => props.setMood(event.target.value)}
           >
-            <option value="">-- Select an option --</option>
-            <option value="Stressed">😀Stressed</option>
-            <option value="Sad">😀Sad</option>
-            <option value="Chilled">😀Chilled</option>
+            <option value="" >-- Select an option --</option>
+            <option value="Stressed">Stressed</option>
+            <option value="Sad">Sad</option>
+            <option value="Chilled">Chilled</option>
+            <option value="Happy">Happy</option>
+            <option value="Overjoyed">Overjoyed</option>
           </select>
         </div>
 

@@ -1,21 +1,36 @@
-option:nth-child(2) {
-  background-color: red;
+:root {
+  --chilled : #E6F8B2; 
+  --sad : #7A9CC6;
+  --overjoyed: #F06C9B;
+  --happy: #FFE66D;
+  --stressed: #d90429;
 }
 
+option:nth-child(2) {
+    background-color: var(--stressed);
+  }
+  
 option:nth-child(3) {
-  background-color: skyblue;
+  background-color: var(--sad);
 }
 
 option:nth-child(4) {
-  background-color: lightgreen;
+  background-color: var(--chilled);
 }
+option:nth-child(5) {
+  background-color: var(--happy);
+}
+option:nth-child(6) {
+  background-color: var(--overjoyed);
+}
+ 
 
-#selectInput.selectedOption1 {
-  background-color: red;
-}
-#selectInput.selectedOption2 {
-  background-color: skyblue;
-}
-#selectInput.selectedOption3 {
-  background-color: lightgreen;
-}
+#selectInput .selectedOption1 {
+    background-color: red;
+  }
+  #selectInput .selectedOption2{
+    background-color: skyblue;
+  }
+  #selectInput .selectedOption3{
+    background-color: lightgreen;  }
+  
