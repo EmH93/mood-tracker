@@ -13,6 +13,9 @@ function MoodDiary() {
     : "{}";
   const [diary, setDiary] = useState(JSON.parse(mood));
 
+  console.group('diary', diary);
+  console.log('mood', mood);
+
   useEffect(() => {
     setDiary(JSON.parse(mood));
   }, [mood]);
@@ -34,7 +37,7 @@ function MoodDiary() {
     <div className="mood-wrapper">
         <div className="form-label-container">
         <h3 className="form-label">
-        Select the date and your mood from the options bellow:
+        Select the date and your mood from the options below
       </h3>
         </div>
       <div className="mood-container">

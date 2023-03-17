@@ -5,6 +5,7 @@ const { Meta } = Card;
 
 function MoodCard(props) {
   return (
+<div>
     <Col span={4}>
       <Card
         className={`card ${
@@ -26,10 +27,10 @@ function MoodCard(props) {
         <Meta
           avatar={<Avatar src="https://joesch.moe/api/v1/random?key=1" />}
           title={props.title}
-          description="This is the description"
         />
       </Card>
     </Col>
+    </div>
   );
 }
 

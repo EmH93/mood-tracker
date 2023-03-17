@@ -4,11 +4,9 @@
   height: 200px;
   margin-top: 16px;
   margin-bottom: 50px;
+
   }
  
-.bg-color{
-  background-color: red;
-}
 
 .selectedOption1 {
   background-color: var(--stressed);
