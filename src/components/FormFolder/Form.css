@@ -1,36 +1,103 @@
 :root {
-  --chilled : #E6F8B2; 
-  --sad : #7A9CC6;
-  --overjoyed: #F06C9B;
-  --happy: #FFE66D;
+  --chilled: #e6f8b2;
+  --sad: #7a9cc6;
+  --overjoyed: #f06c9b;
+  --happy: #ffe66d;
   --stressed: #d90429;
 }
 
-option:nth-child(2) {
-    background-color: var(--stressed);
-  }
-  
-option:nth-child(3) {
+.form-container{
+  width: 250px;
+}
+
+select option {
+  height: 40px!important;
+  width: 200px;
+  font-size: 18px;
+}
+
+select option:nth-child(2) {
+  background-color: var(--stressed);
+}
+
+select option:nth-child(3) {
   background-color: var(--sad);
 }
 
-option:nth-child(4) {
+select option:nth-child(4) {
   background-color: var(--chilled);
 }
-option:nth-child(5) {
+select option:nth-child(5) {
   background-color: var(--happy);
 }
-option:nth-child(6) {
+select option:nth-child(6) {
   background-color: var(--overjoyed);
 }
- 
 
-#selectInput .selectedOption1 {
-    background-color: red;
-  }
-  #selectInput .selectedOption2{
-    background-color: skyblue;
-  }
-  #selectInput .selectedOption3{
-    background-color: lightgreen;  }
-  
+.selectedOption1 {
+  background-color: var(--stressed);
+}
+.selectedOption2 {
+  background-color: var(--sad);
+}
+.selectedOption3 {
+  background-color: var(--chilled);
+}
+.selectedOption4 {
+  background-color: var(--happy);
+}
+.selectedOption5 {
+  background-color: var(--overjoyed);
+}
+.form-control{
+  line-height: 2.4;
+}
+
+#selectInput {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: block;
+  width: 100%;
+  padding: 0.8rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+::-webkit-calendar-picker-indicator{
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.btn-container{
+  display: flex;
+  justify-content: center;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 60px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+

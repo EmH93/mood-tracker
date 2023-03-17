@@ -10,7 +10,7 @@ function QuoteAPI() {
         "category": "present moment"
       })
 
-//Makes call to API every 8 seconds to replace quote on home screen    
+//Makes call to API every 12 seconds to replace quote on home screen    
      useEffect(() => {
         const options = {
             method: 'GET',
@@ -33,8 +33,8 @@ function QuoteAPI() {
         <div className='container-fluid'>
         <div id="quoteDiv">
           <motion.div key={responseData} variants={variants} animate={'show'} initial="hide" >
-                <h2>"{responseData.quote}"</h2>
-                <h3>{responseData.author}</h3>
+                <h2 id='quoteText'>"{responseData.quote}"</h2>
+                <h3 id='authorText'>{responseData.author}</h3>
             </motion.div>
         </div>
       </div>
