@@ -3,6 +3,7 @@ import MoodCard from "../../components/Card/Card";
 import Form from "../../components/FormFolder/Form";
 import {Row} from 'antd';
 import getKeyByValue from "../../utils/getKeyHook";
+import ClearButton from "../../components/ClearAllBtn/ClearAllBtn";
 
 function MoodDiary(){
     const [selectedDate, setSelectedDate] = useState('');
@@ -30,27 +31,24 @@ function MoodDiary(){
 
   
     return (
-        <div>
+        <>
              <Form handleFormSubmit={handleFormSubmit} date = {selectedDate} mood={selectedMood} setMood={setSelectedMood} setDate ={setSelectedDate}/>
             <Row gutter={16}>
                { 
                
-
                     Object.values(diary).map((item,index)=>{
                         const objKey = getKeyByValue(diary,item)
-                        return <MoodCard title={item} date={objKey}/>
+                        return <MoodCard key={index} title={item} date={objKey}/>
 
                     })
                }
-               
-                
-                
-                
+             
             </Row>
-                
+           
+                <ClearButton/>
+
             
-        </div>
-       
+        </>      
 
     )
 }
