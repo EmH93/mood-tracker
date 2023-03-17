@@ -1,11 +1,14 @@
 #pexelsCard {
   margin: 1rem;
   box-shadow: 0 3px 6px #999, 0 3px 6px #999;
-  width: 25%;
-  height: auto;
+  width: 30%;
+  height: 500px;
 }
 
-
+#imageContainer{
+  width: 100%;
+  
+}
 
 
 
