@@ -1,0 +1,14 @@
+.buttonLink {
+    background-color: #9381ff;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.buttonLink:hover {
+    background-color: #b8b8ff;
+    color: white !important;
+    border-color: #9381ff !important;
+    box-shadow: 5px 10px 10px #bebebec2; 
+}
+
+.shadow { mix-blend-mode: multiply; }
