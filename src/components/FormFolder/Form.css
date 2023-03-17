@@ -28,14 +28,67 @@ select option:nth-child(6) {
   background-color: var(--stressed);
 }
 .selectedOption2 {
-  background-color:var(--sad);
+  background-color: var(--sad);
 }
 .selectedOption3 {
-  background-color:var(--chilled);
+  background-color: var(--chilled);
 }
 .selectedOption4 {
-  background-color:var(--happy);
+  background-color: var(--happy);
 }
-.selectedOption5{
+.selectedOption5 {
   background-color: var(--overjoyed);
 }
+
+.form-group label {
+  margin-bottom: 30px;
+}
+
+#selectInput {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: block;
+  width: 100%;
+  padding: 0.8rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  background-clip: padding-box;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+
+::-webkit-calendar-picker-indicator{
+  background-color: #ffffff;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.btn-container{
+  display: flex;
+  justify-content: center;
+}
+
+button[type="submit"] {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 60px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #3e8e41;
+}
+
