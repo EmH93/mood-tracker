@@ -1,9 +1,10 @@
 import React from "react";
+import ResourceText from '../../components/ResourceText/ResourceText';
 
 function Resources (){
     return (
         <div>
-            Resources Page
+            <ResourceText/>
         </div>
     )
 }

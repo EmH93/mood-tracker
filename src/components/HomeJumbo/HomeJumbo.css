@@ -7,19 +7,19 @@
     height: 600px;
 }
 
-p {
+#subHeadingHome {
     font-weight: 600 !important;
     font-size: 28px !important;
     color: #ffffff;
     text-shadow: 2px 2px rgb(68, 68, 68);
 }
 
-button {
+#getStartedBtn {
     box-shadow: 10px 10px 8px rgb(112, 112, 112, 0.8);
 }
 
 
-h1 {
+#homeTitle {
     font-weight: 700 !important;
     font-size: 65px !important;
     color: #ffffff;
@@ -27,11 +27,11 @@ h1 {
 }
 
 @media only screen and (max-width: 600px) {
-    p {
+    #subHeadingHome {
         font-size: 18px !important;
     }
 
-    h1 {
+    #homeTitle {
         font-size: 45px !important;
     }
   };
