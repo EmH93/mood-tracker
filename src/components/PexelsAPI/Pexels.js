@@ -27,6 +27,7 @@ function Pexels (){
     })
     .catch(err => console.error(err))
 
+    query = imageType[Math.floor(Math.random()*imageType.length)];
     client.photos.search({ query, per_page: 80 })
     .then((response) => {
         let images = response.photos; 
@@ -34,6 +35,7 @@ function Pexels (){
     })
     .catch(err => console.error(err))
 
+    query = imageType[Math.floor(Math.random()*imageType.length)];
     client.photos.search({ query, per_page: 80 })
     .then((response) => {
         let images = response.photos; 
