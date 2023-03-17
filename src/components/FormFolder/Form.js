@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import moment from 'moment';
 import "./Form.css";
 
 function Form() {
@@ -7,7 +8,8 @@ function Form() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    localStorage.setItem(selectedDate, selectedMood);
+    var date = moment(selectedDate).format('DD/MM/YYYY');
+    localStorage.setItem(date, selectedMood);
     setSelectedDate("");
     setSelectedMood("");
   };
@@ -33,11 +35,11 @@ function Form() {
           <label htmlFor="selectInput">Select mood:</label>
           <select
               className={`form-control ${
-                selectedMood === "option1"
+                selectedMood === "Stressed"
                   ? "selectedOption1"
-                  : selectedMood === "option2"
+                  : selectedMood === "Sad"
                   ? "selectedOption2"
-                  :selectedMood === "option3"
+                  :selectedMood === "Chilled"
                   ? "selectedOption3": ""
               }`}
             id= "selectInput"
@@ -47,9 +49,9 @@ function Form() {
             onChange={(event) => setSelectedMood(event.target.value)}
           >
             <option value="">-- Select an option --</option>
-            <option value="Stressed">Stressed</option>
-            <option value="Sad">Sad</option>
-            <option value="Chilled">Chilled</option>
+            <option value="Stressed">😀Stressed</option>
+            <option value="Sad">😀Sad</option>
+            <option value="Chilled">😀Chilled</option>
           </select>
         </div>
 
