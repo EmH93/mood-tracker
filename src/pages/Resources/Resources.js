@@ -8,11 +8,10 @@ import ResourceText from '../../components/ResourceText/ResourceText';
 function Resources (){
     return (
         <div>
-
-           <Pexels />
-
+            <Pexels />
+        <div>
             <ResourceText/>
-
+        </div>
         </div>
     )
 }
