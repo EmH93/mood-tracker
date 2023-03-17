@@ -2,7 +2,7 @@ import './ImageCard.css';
 
 function ImageCard(props) {
     return (
-    <div className="card">
+    <div id="pexelsCard" className="card">
           <img alt="calm" src={props.url} />
     </div>
         )
