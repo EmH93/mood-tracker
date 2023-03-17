@@ -22,16 +22,16 @@ function Form(props) {
         <div className="form-group">
           <label htmlFor="selectInput">Select mood:</label>
           <select
-              className={`form-control ${
-                props.mood === "option1"
+              className={` ${
+                props.mood === "Stressed"
                   ? "selectedOption1"
-                  : props.mood=== "option2"
+                  : props.mood=== "Sad"
                   ? "selectedOption2"
-                  :props.mood === "option3"
+                  :props.mood === "Chilled"
                   ? "selectedOption3"
-                  : props.mood === "option4"
+                  : props.mood === "Happy"
                   ? "selectedOption4" 
-                  :props.mood === "option5"
+                  :props.mood === "Overjoyed"
                   ? "selectedOption5" : ""
               }`}
             id= "selectInput"
@@ -39,12 +39,12 @@ function Form(props) {
             value={props.mood}
             onChange={(event) => props.setMood(event.target.value)}
           >
-            <option value="" >-- Select an option --</option>
-            <option value="Stressed">Stressed</option>
-            <option value="Sad">Sad</option>
-            <option value="Chilled">Chilled</option>
-            <option value="Happy">Happy</option>
-            <option value="Overjoyed">Overjoyed</option>
+            <option value="" >-- Select a mood --</option>
+            <option value="Stressed">😥 Stressed</option>
+            <option value="Sad">☹️ Sad</option>
+            <option value="Chilled">😊 Chilled</option>
+            <option value="Happy">😃 Happy</option>
+            <option value="Overjoyed">😁 Overjoyed</option>
           </select>
         </div>
 

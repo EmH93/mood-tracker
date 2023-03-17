@@ -1,36 +1,41 @@
 :root {
-  --chilled : #E6F8B2; 
-  --sad : #7A9CC6;
-  --overjoyed: #F06C9B;
-  --happy: #FFE66D;
+  --chilled: #e6f8b2;
+  --sad: #7a9cc6;
+  --overjoyed: #f06c9b;
+  --happy: #ffe66d;
   --stressed: #d90429;
 }
 
-option:nth-child(2) {
-    background-color: var(--stressed);
-  }
-  
-option:nth-child(3) {
+select option:nth-child(2) {
+  background-color: var(--stressed);
+}
+
+select option:nth-child(3) {
   background-color: var(--sad);
 }
 
-option:nth-child(4) {
+select option:nth-child(4) {
   background-color: var(--chilled);
 }
-option:nth-child(5) {
+select option:nth-child(5) {
   background-color: var(--happy);
 }
-option:nth-child(6) {
+select option:nth-child(6) {
   background-color: var(--overjoyed);
 }
- 
 
-#selectInput .selectedOption1 {
-    background-color: red;
-  }
-  #selectInput .selectedOption2{
-    background-color: skyblue;
-  }
-  #selectInput .selectedOption3{
-    background-color: lightgreen;  }
-  
+.selectedOption1 {
+  background-color: var(--stressed);
+}
+.selectedOption2 {
+  background-color:var(--sad);
+}
+.selectedOption3 {
+  background-color:var(--chilled);
+}
+.selectedOption4 {
+  background-color:var(--happy);
+}
+.selectedOption5{
+  background-color: var(--overjoyed);
+}
