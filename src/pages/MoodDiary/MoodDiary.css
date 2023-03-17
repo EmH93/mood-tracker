@@ -1,7 +1,24 @@
+.mood-wrapper{
+    /* background-image: linear-gradient(to bottom,#DA6085, #D7EDE1);  */
+    /* background-image: linear-gradient(to bottom,#9796F0, #FBC7D4);  */
+    /* background-image: linear-gradient(to bottom,#E5CDC3, #6047E0); */
+    background-image: linear-gradient(to bottom,#4B6CB7, #182848); 
+}
 .mood-container{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 60px;
+}
+
+.form-label-container{
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+.form-label{
+    color:azure;
+    font-size: 30px;
 }

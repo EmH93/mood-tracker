@@ -2,12 +2,9 @@ import React from "react";
 import "./Form.css";
 function Form(props) {
   return (
-    <div>
+    <div className="form-container">
       <form className="form" onSubmit={props.handleFormSubmit}>
         <div className="form-group">
-          <label htmlFor="dateInput">
-            Select a date a mood from the options bellow:
-          </label>
           <input
             name="date"
             type="date"

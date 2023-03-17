@@ -6,6 +6,16 @@
   --stressed: #d90429;
 }
 
+.form-container{
+  width: 250px;
+}
+
+select option {
+  height: 40px!important;
+  width: 200px;
+  font-size: 18px;
+}
+
 select option:nth-child(2) {
   background-color: var(--stressed);
 }
@@ -39,9 +49,8 @@ select option:nth-child(6) {
 .selectedOption5 {
   background-color: var(--overjoyed);
 }
-
-.form-group label {
-  margin-bottom: 30px;
+.form-control{
+  line-height: 2.4;
 }
 
 #selectInput {

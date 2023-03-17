@@ -1,7 +1,27 @@
 
 .card{
-  width: 200px;
+  width: 260px;
   height: 200px;
   margin-top: 16px;
+  margin-bottom: 50px;
   }
  
+.bg-color{
+  background-color: red;
+}
+
+.selectedOption1 {
+  background-color: var(--stressed);
+}
+.selectedOption2 {
+  background-color: var(--sad);
+}
+.selectedOption3 {
+  background-color: var(--chilled);
+}
+.selectedOption4 {
+  background-color: var(--happy);
+}
+.selectedOption5 {
+  background-color: var(--overjoyed);
+}

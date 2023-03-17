@@ -31,22 +31,31 @@ function MoodDiary() {
   };
 
   return (
-    <div className="mood-container">
-      <div>
-        <Form
-          handleFormSubmit={handleFormSubmit}
-          date={selectedDate}
-          mood={selectedMood}
-          setMood={setSelectedMood}
-          setDate={setSelectedDate}
-        />
-        <Row gutter={16}>
-          {Object.values(diary).map((item, index) => {
-            const objKey = getKeyByValue(diary, item);
-            return <MoodCard title={item} date={objKey} />;
-          })}
-        </Row>
+    <div className="mood-wrapper">
+        <div className="form-label-container">
+        <h3 className="form-label">
+        Select the date and your mood from the options bellow:
+      </h3>
+        </div>
+      <div className="mood-container">
+        <div>
+          <Form
+            handleFormSubmit={handleFormSubmit}
+            date={selectedDate}
+            mood={selectedMood}
+            setMood={setSelectedMood}
+            setDate={setSelectedDate}
+          />
+   
+        </div>
+        
       </div>
+      <Row gutter={16}>
+            {Object.values(diary).map((item, index) => {
+              const objKey = getKeyByValue(diary, item);
+              return <MoodCard title={item} date={objKey} />;
+            })}
+          </Row>
     </div>
   );
 }
