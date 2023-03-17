@@ -1,6 +1,8 @@
 import React from "react";
 import { Avatar, Card, Col } from "antd";
 import "./Card.css";
+import stressed from './Moods/stressed.png';
+import happy from './Moods/happpy.png';
 const { Meta } = Card;
 
 function MoodCard(props) {
@@ -24,8 +26,14 @@ function MoodCard(props) {
         title={props.date}
         bordered={true}
       >
-        <Meta
-          avatar={<Avatar src="https://joesch.moe/api/v1/random?key=1" />}
+        <Meta className="avatar-container"
+          avatar={<Avatar className="avatar" src={`${
+            props.title === "Stressed"
+              ? stressed
+              : props.title === "Happy"
+              ? happy
+              : ""
+          }`}/>}
           title={props.title}
         />
       </Card>
