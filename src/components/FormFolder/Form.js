@@ -7,13 +7,24 @@ function Form(props) {
         <div className="form-group">
           <input
             name="date"
-            type="datetime-local"
+            type="date"
             className="form-control"
             id="dateInput"
             placeholder="Select a date"
             required
             value={props.date}
             onChange={(event) => props.setDate(event.target.value)}
+          />
+        </div>
+        <div className="form-group">
+          <input
+            name="time"
+            type="time"
+            className="form-control"
+            id="dateInput"
+            required
+            value={props.time}
+            onChange={(event) => props.setTime(event.target.value)}
           />
         </div>
 
