@@ -7,7 +7,7 @@ function Form(props) {
         <div className="form-group">
           <input
             name="date"
-            type="date"
+            type="datetime-local"
             className="form-control"
             id="dateInput"
             placeholder="Select a date"
