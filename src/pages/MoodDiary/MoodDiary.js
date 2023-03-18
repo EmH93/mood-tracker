@@ -53,7 +53,7 @@ function MoodDiary() {
         </div>
         
       </div>
-      <Row gutter={16}>
+      <Row className="cards-wrapper" gutter={16}>
             {Object.values(diary).map((item, index) => {
               const objKey = getKeyByValue(diary, item);
               return <MoodCard title={item} date={objKey} />;
