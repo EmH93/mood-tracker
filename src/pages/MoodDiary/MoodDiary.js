@@ -41,12 +41,14 @@ function MoodDiary() {
 
   return (
     <div className="mood-wrapper">
-        <div className="form-label-container">
-        <h3 className="form-label">
-        Mood Diary
-      </h3>
-      <p>Select the date and your mood from the options below</p>
-        </div>
+        <Row className="form-label-container" justify="center">
+          <Col className="gutter-row" sm={4} xl={8}> 
+            <h3 className="mood-page-heading">
+            Mood Diary
+          </h3>
+          <p className="form-label" >Select the date and your mood from the options below</p>
+        </Col> 
+        </Row>
       <div className="mood-container">
        
         <div>

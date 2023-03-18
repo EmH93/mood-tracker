@@ -102,5 +102,6 @@ button[type="submit"] {
 
 button[type="submit"]:hover {
   background-color: #8278D9;
+  box-shadow:  var(--card-box-shadow);
 }
 

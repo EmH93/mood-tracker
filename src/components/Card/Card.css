@@ -4,6 +4,7 @@
   height: 200px;
   margin-top: 16px;
   margin-bottom: 50px;
+  box-shadow: var(--card-box-shadow);
 
   }
  .avatar-container{

@@ -15,6 +15,7 @@
     transition: background-color 0.3s ease;
   }
 
- #clear-hover {
-    box-shadow:  var(--card-box-shadow);
+ #clear-btn:hover{
+  background-color: #8278D9;
+  box-shadow:  var(--card-box-shadow);
   }
