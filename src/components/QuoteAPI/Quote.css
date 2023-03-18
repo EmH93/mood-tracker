@@ -1,8 +1,8 @@
 #quoteDiv {
     padding: 20px 30px 20px 30px;
-    text-align: center;
-    width: 80%;
-    margin: auto;
+    text-align: center !important;
+    width: 80% !important;
+    margin: auto !important;
 }
 
 #quoteText {
