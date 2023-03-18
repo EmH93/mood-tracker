@@ -7,6 +7,12 @@
     margin-top: 60px;
 }
 
+.cards-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .form-label-container{
     display: flex;
     justify-content: center;
