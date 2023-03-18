@@ -9,27 +9,32 @@ import ClearButton from "../../components/ClearAllBtn/ClearAllBtn";
 function MoodDiary() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedMood, setSelectedMood] = useState("");
-  const mood = localStorage.getItem("moodDiary")
-    ? localStorage.getItem("moodDiary")
-    : "{}";
-  const [diary, setDiary] = useState(JSON.parse(mood));
-
-  console.group('diary', diary);
-  console.log('mood', mood);
-
+  const [moodDiary, setMoodDiary] = useState("")
+  const [diary, setDiary] = useState(moodDiary);
+  
   useEffect(() => {
-    setDiary(JSON.parse(mood));
-  }, [mood]);
+    const mood = localStorage.getItem("moodDiary") ? localStorage.getItem("moodDiary") : "{}";
+    setMoodDiary(JSON.parse(mood))
+    setDiary(moodDiary);
+  }, [moodDiary]);
 
+  const handleClearButton = () => {
+    if(Object.keys(moodDiary).length > 0){
+      
+      localStorage.removeItem("moodDiary");
+      const emptyDiary = localStorage.getItem("moodDiary")
+      ? localStorage.getItem("moodDiary")
+      : "{}";
+      setMoodDiary(emptyDiary)
+     
+    };
+  
+  };
   const handleFormSubmit = (event) => {
     event.preventDefault();
     let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
-    console.log(typeof moodObj);
-
     moodObj[selectedDate] = selectedMood;
-
     localStorage.setItem("moodDiary", JSON.stringify(moodObj));
-    console.log("form.js " + JSON.stringify(moodObj));
     setSelectedDate("");
     setSelectedMood("");
   };
@@ -57,11 +62,11 @@ function MoodDiary() {
       <Row gutter={16}>
             {Object.values(diary).map((item, index) => {
               const objKey = getKeyByValue(diary, item);
-              return <MoodCard title={item} date={objKey} />;
+              return <MoodCard key={index} title={item} date={objKey} />;
             })}
           </Row>
         
-          <ClearButton/> 
+          <ClearButton onClick={handleClearButton}/> 
         
     </div>
   );

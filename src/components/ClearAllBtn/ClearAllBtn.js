@@ -1,7 +1,8 @@
 import React from 'react';
 import { DeleteTwoTone } from '@ant-design/icons';
 import { Button, Space, Tooltip, Col, Row} from 'antd';
-function ClearButton (){
+function ClearButton (props){
+  
   return (
    <div>
 
@@ -10,7 +11,7 @@ function ClearButton (){
           <Space direction="vertical">
               <Space wrap>
                 <Tooltip title="clear everything">
-                <Button type="primary" icon={<DeleteTwoTone />}>
+                <Button onClick={props.onClick}  type="primary" icon={<DeleteTwoTone />}>
                   Clear
                 </Button>
 
