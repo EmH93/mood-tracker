@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import MoodCard from "../../components/Card/Card";
 import Form from "../../components/FormFolder/Form";
 import "./MoodDiary.css";
-import { Row } from "antd";
+import { Row,Col,Divider} from "antd";
 import getKeyByValue from "../../utils/getKeyHook";
 import ClearButton from "../../components/ClearAllBtn/ClearAllBtn";
 
@@ -43,10 +43,12 @@ function MoodDiary() {
     <div className="mood-wrapper">
         <div className="form-label-container">
         <h3 className="form-label">
-        Select the date and your mood from the options below
+        Mood Diary
       </h3>
+      <p>Select the date and your mood from the options below</p>
         </div>
       <div className="mood-container">
+       
         <div>
           <Form
             handleFormSubmit={handleFormSubmit}
@@ -59,14 +61,25 @@ function MoodDiary() {
         </div>
         
       </div>
-      <Row gutter={16}>
-            {Object.values(diary).map((item, index) => {
-              const objKey = getKeyByValue(diary, item);
-              return <MoodCard key={index} title={item} date={objKey} />;
-            })}
-          </Row>
+      <Divider orientation="middle">Entries</Divider>
+      <Row gutter={[16,24]} justify="center">
+       
+          
+              {Object.values(diary).map((item, index) => {
+                const objKey = getKeyByValue(diary, item);
+                return  <Col className="gutter-row" sm={12} xl={6}> 
+                <MoodCard key={index} title={item} date={objKey} />
+                </Col>
+              })}
+       
+     
         
-          <ClearButton onClick={handleClearButton}/> 
+      </Row>
+      <Row gutter={[24,16]} justify="center">
+          <Col>
+            <ClearButton onClick={handleClearButton}/>
+          </Col>
+      </Row>
         
     </div>
   );

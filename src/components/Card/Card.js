@@ -1,12 +1,11 @@
 import React from "react";
-import { Avatar, Card, Col } from "antd";
+import { Avatar, Card} from "antd";
 import "./Card.css";
 const { Meta } = Card;
 
 function MoodCard(props) {
   return (
-<div>
-    <Col span={4}>
+
       <Card
         id="moodCard" className={`card ${
           props.title === "Stressed"
@@ -29,8 +28,7 @@ function MoodCard(props) {
           title={props.title}
         />
       </Card>
-    </Col>
-    </div>
+   
   );
 }
 

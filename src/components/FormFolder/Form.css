@@ -4,10 +4,12 @@
   --overjoyed: #f06c9b;
   --happy: #ffe66d;
   --stressed: #d90429;
+  --card-box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
 }
 
 .form-container{
   width: 250px;
+  
 }
 
 select option {
