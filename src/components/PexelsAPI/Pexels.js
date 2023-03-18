@@ -20,24 +20,26 @@ function Pexels (){
 
     let query = imageType[Math.floor(Math.random()*imageType.length)];
    
-    client.photos.search({ query, per_page: 80 })
+    client.photos.search({ query, per_page: 80})
     .then((response) => {
         let images = response.photos; 
-        setPhotoUrl1(images[Math.floor(Math.random()*images.length)].src.original)
+        setPhotoUrl1(images[Math.floor(Math.random()*images.length)].src.portrait)
     })
     .catch(err => console.error(err))
 
+    query = imageType[Math.floor(Math.random()*imageType.length)];
     client.photos.search({ query, per_page: 80 })
     .then((response) => {
         let images = response.photos; 
-        setPhotoUrl2(images[Math.floor(Math.random()*images.length)].src.original)
+        setPhotoUrl2(images[Math.floor(Math.random()*images.length)].src.portrait)
     })
     .catch(err => console.error(err))
 
+    query = imageType[Math.floor(Math.random()*imageType.length)];
     client.photos.search({ query, per_page: 80 })
     .then((response) => {
         let images = response.photos; 
-        setPhotoUrl3(images[Math.floor(Math.random()*images.length)].src.original)
+        setPhotoUrl3(images[Math.floor(Math.random()*images.length)].src.portrait)
     })
     .catch(err => console.error(err))
 

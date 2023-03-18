@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from 'framer-motion';
 import './ResourceText.css';
 import 'bootstrap/dist/css/bootstrap.css';
+import ResourceBtns from "../../components/ResourceBtns/ResourceBtns";
 
 function ResourceText(){
 
@@ -15,6 +16,7 @@ function ResourceText(){
                     <br/>
                     Check out the resources below for more information on mood tracking and further resources for support.
                 </p>
+                <ResourceBtns/>
             </div>
         </motion.div>
     )
