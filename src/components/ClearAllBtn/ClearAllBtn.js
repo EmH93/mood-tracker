@@ -1,6 +1,7 @@
 import React from 'react';
 import { DeleteTwoTone } from '@ant-design/icons';
 import { Button, Space, Tooltip} from 'antd';
+import './ClearAllBtn.css'
 function ClearButton (props){
   
   return (
