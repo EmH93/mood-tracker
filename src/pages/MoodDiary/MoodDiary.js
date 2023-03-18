@@ -15,6 +15,7 @@ function MoodDiary() {
     : "{}";
   const [diary, setDiary] = useState(JSON.parse(mood));
 
+
   useEffect(() => {
     setDiary(JSON.parse(mood));
   }, [mood]);
@@ -24,11 +25,12 @@ function MoodDiary() {
     let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
     console.log(typeof moodObj);
 
-    let dateTime = moment(selectedDate).format('MMMM d, YYYY')  + '  -  ' + selectedTime;
+    let dateTime = moment(selectedDate).format("dddd, MM YYYY")  + '  -  ' + selectedTime;
 
     moodObj[dateTime] = selectedMood;
 
     localStorage.setItem("moodDiary", JSON.stringify(moodObj));
+    console.log("form.js " + JSON.stringify(moodObj));
     setSelectedDate("");
     setSelectedMood("");
     setSelectedTime("");

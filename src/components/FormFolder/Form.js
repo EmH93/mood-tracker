@@ -21,7 +21,7 @@ function Form(props) {
             name="time"
             type="time"
             className="form-control"
-            id="dateInput"
+            id="timeInput"
             required
             value={props.time}
             onChange={(event) => props.setTime(event.target.value)}
