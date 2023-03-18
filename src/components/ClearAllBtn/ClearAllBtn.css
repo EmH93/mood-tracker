@@ -9,8 +9,12 @@
     justify-content: center;
     align-items: center;
     font-size: 18px;
-    /* margin: 4px 2px; */
+    margin: 4px 2px;
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s ease;
+  }
+
+ #clear-hover {
+    box-shadow:  var(--card-box-shadow);
   }

@@ -1,10 +1,11 @@
 :root {
   --chilled: #e6f8b2;
-  --sad: #7a9cc6;
+  --sad: #7AD1E4;
   --overjoyed: #f06c9b;
   --happy: #ffe66d;
   --stressed: #d90429;
   --card-box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+  --stressed: #B20A2C;
 }
 
 .form-container{
@@ -85,7 +86,7 @@ select option:nth-child(6) {
 }
 
 button[type="submit"] {
-  background-color: #4CAF50; /* Green */
+  background-color: #131C85; /* Green */
   border: none;
   color: white;
   padding: 10px 60px;
@@ -100,6 +101,6 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #3e8e41;
+  background-color: #8278D9;
 }
 

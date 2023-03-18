@@ -62,7 +62,7 @@ function MoodDiary() {
         
       </div>
       <Divider orientation="middle">Entries</Divider>
-      <Row gutter={[16,24]} justify="center">
+      <Row className="cards-wrapper" gutter={[16,24]} justify="center">
        
           
               {Object.values(diary).map((item, index) => {
