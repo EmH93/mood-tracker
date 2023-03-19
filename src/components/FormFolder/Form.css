@@ -56,6 +56,10 @@ select option:nth-child(6) {
   line-height: 2.4;
 }
 
+#timeInput{
+  margin-top:25px;
+}
+
 #selectInput {
   margin-top: 30px;
   margin-bottom: 30px;
