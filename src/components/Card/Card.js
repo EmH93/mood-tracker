@@ -25,7 +25,7 @@ function MoodCard(props) {
             ? "selectedOption5"
             : ""
         }`}
-        title={props.date}
+        title={props.dateItem}
         bordered={true}
       >
         <Meta className="avatar-container"

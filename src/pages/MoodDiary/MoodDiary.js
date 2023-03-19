@@ -4,7 +4,7 @@ import Form from "../../components/FormFolder/Form";
 import moment from "moment";
 import "./MoodDiary.css";
 import { Row,Col,Divider} from "antd";
-import getKeyByValue from "../../utils/getKeyHook";
+import getKeyByValue from "../../utils/getValueHook";
 import ClearButton from "../../components/ClearAllBtn/ClearAllBtn";
 
 function MoodDiary() {
@@ -39,10 +39,9 @@ function MoodDiary() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
-    // moodObj[selectedDate] = selectedMood;
-    console.log(typeof moodObj);
+   
 
-    let dateTime = moment(selectedDate).format("dddd, MM YYYY")  + '  -  ' + selectedTime;
+    let dateTime = moment(selectedDate).format("dddd, DD-MM-YYYY")  + '  -  ' + selectedTime;
 
     moodObj[dateTime] = selectedMood;
 
@@ -85,11 +84,13 @@ function MoodDiary() {
       <Row className="cards-wrapper" gutter={[16,24]} justify="center">
        
           
-              {Object.values(diary).map((item, index) => {
-                const objKey = getKeyByValue(diary, item);
-                return  <Col className="gutter-row"> 
-                <MoodCard key={index} title={item} date={objKey} />
-                </Col>
+              {Object.keys(diary).map((dateItem, index) => {
+                const objVal = getKeyByValue(diary, dateItem);
+              
+                return <Col className="gutter-row"> 
+                
+                          <MoodCard key={index} title={objVal} dateItem={dateItem} />
+                       </Col>
               })}
        
      
