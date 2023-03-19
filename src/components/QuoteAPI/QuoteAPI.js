@@ -30,7 +30,7 @@ function QuoteAPI() {
     }, [])
     
       return (
-        <div className='container-fluid'>
+        <div id="quoteWrapper" className='container-fluid'>
         <div id="quoteDiv">
           <motion.div key={responseData} variants={variants} animate={'show'} initial="hide" >
                 <h2 id='quoteText'>"{responseData.quote}"</h2>
