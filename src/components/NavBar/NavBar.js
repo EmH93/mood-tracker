@@ -10,9 +10,9 @@ function Navbar() {
 
   return (
     <nav className="navbar navbar-expand-sm navbar-inverse custom-nav">
-        <div class="navbar-header">
-        <button class="custom-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navlist" aria-controls="navlist" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
-        <span class="navbar-toggler-icon"></span>
+        <div className="navbar-header">
+        <button className="custom-toggler navbar-toggler" type="button" data-toggle="collapse" data-target="#navlist" aria-controls="navlist" aria-expanded={!isNavCollapsed ? true : false} aria-label="Toggle navigation" onClick={handleNavCollapse}>
+        <span className="navbar-toggler-icon"></span>
       </button>
         </div>
 
