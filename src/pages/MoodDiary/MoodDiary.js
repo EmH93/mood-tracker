@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import MoodCard from "../../components/Card/Card";
 import Form from "../../components/FormFolder/Form";
+import moment from "moment";
 import "./MoodDiary.css";
 import { Row } from "antd";
 import getKeyByValue from "../../utils/getKeyHook";
 
 function MoodDiary() {
   const [selectedDate, setSelectedDate] = useState("");
+  const [selectedTime, setSelectedTime] = useState("");
   const [selectedMood, setSelectedMood] = useState("");
   const mood = localStorage.getItem("moodDiary")
     ? localStorage.getItem("moodDiary")
     : "{}";
   const [diary, setDiary] = useState(JSON.parse(mood));
 
-  console.group('diary', diary);
-  console.log('mood', mood);
 
   useEffect(() => {
     setDiary(JSON.parse(mood));
@@ -25,12 +25,15 @@ function MoodDiary() {
     let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
     console.log(typeof moodObj);
 
-    moodObj[selectedDate] = selectedMood;
+    let dateTime = moment(selectedDate).format("dddd, MM YYYY")  + '  -  ' + selectedTime;
+
+    moodObj[dateTime] = selectedMood;
 
     localStorage.setItem("moodDiary", JSON.stringify(moodObj));
     console.log("form.js " + JSON.stringify(moodObj));
     setSelectedDate("");
     setSelectedMood("");
+    setSelectedTime("");
   };
 
   return (
@@ -45,9 +48,11 @@ function MoodDiary() {
           <Form
             handleFormSubmit={handleFormSubmit}
             date={selectedDate}
+            time={selectedTime}
             mood={selectedMood}
             setMood={setSelectedMood}
             setDate={setSelectedDate}
+            setTime={setSelectedTime}
           />
    
         </div>

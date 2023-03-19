@@ -16,6 +16,17 @@ function Form(props) {
             onChange={(event) => props.setDate(event.target.value)}
           />
         </div>
+        <div className="form-group">
+          <input
+            name="time"
+            type="time"
+            className="form-control"
+            id="timeInput"
+            required
+            value={props.time}
+            onChange={(event) => props.setTime(event.target.value)}
+          />
+        </div>
 
         <div className="form-group mood-input">
           <select
