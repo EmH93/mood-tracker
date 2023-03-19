@@ -8,19 +8,15 @@
     font-size: 20px;
    
 }
-.form-label-container{
-    margin:5px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    flex-wrap: wrap;
-    
-}
+
 .form-label-container h3 {
+    display: flex;
+    justify-content: center;
     font-family: 'Pacifico', cursive;
     font-size: 5rem;
     align-items: center;
     color : black;
+    align-self: center;
  
 }
 .mood-wrapper{
@@ -28,8 +24,7 @@
     /* background-image: linear-gradient(to bottom,#9796F0, #FBC7D4);  */
     /* background-image: linear-gradient(to bottom,#E5CDC3, #6047E0); */
     /* background-image: linear-gradient(to bottom,#4B6CB7, #182848);  */
-    height: 100%;
-    margin-bottom:0;
+ 
 }
 .mood-container{
     width: 100%;
@@ -55,6 +50,10 @@
 }
 
 .form-label {
+    display: flex;
+    justify-content: center;
     margin-top: 2rem;
     font-size: 30px;
+    
+
 }

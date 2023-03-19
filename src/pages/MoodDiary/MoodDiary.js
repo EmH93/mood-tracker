@@ -42,10 +42,13 @@ function MoodDiary() {
   return (
     <div className="mood-wrapper">
         <Row className="form-label-container" justify="center">
-          <Col className="gutter-row" sm={4} xl={8}> 
-            <h3 className="mood-page-heading">
+          <Col className="gutter-row" xs={13} xl={24} > 
+            <h3 className="mood-page-heading"> 
             Mood Diary
           </h3>
+        </Col> 
+          
+          <Col className="gutter-row" xs={14} xl={24} > 
           <p className="form-label" >Select the date and your mood from the options below</p>
         </Col> 
         </Row>
@@ -69,7 +72,7 @@ function MoodDiary() {
           
               {Object.values(diary).map((item, index) => {
                 const objKey = getKeyByValue(diary, item);
-                return  <Col className="gutter-row" sm={12} xl={6}> 
+                return  <Col className="gutter-row"> 
                 <MoodCard key={index} title={item} date={objKey} />
                 </Col>
               })}
