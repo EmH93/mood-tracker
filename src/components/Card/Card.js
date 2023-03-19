@@ -1,11 +1,11 @@
 import React from "react";
 import { Avatar, Card} from "antd";
 import "./Card.css";
-import stressed from './Moods/stressed.png';
-import happy from './Moods/happy.png';
-import sad from './Moods/sad.png';
-import chilled from './Moods/chilled.png';
-import overjoyed from './Moods/overjoyed.png';
+import stressed from './Moods/stressedv2.png';
+import happy from './Moods/happyv2.png';
+import sad from './Moods/sadv2.png';
+import chilled from './Moods/chilledv2.png';
+import overjoyed from './Moods/overjoyedv2.png';
 const { Meta } = Card;
 
 function MoodCard(props) {

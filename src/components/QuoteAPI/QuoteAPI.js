@@ -30,30 +30,13 @@ function QuoteAPI() {
     }, [])
     
       return (
-        <div className='container-fluid'>
-        <div id="quoteDiv">
-          <motion.div key={responseData} variants={variants} animate={'show'} initial="hide" >
+        <div id="quoteWrapper" className='container-fluid'>
+        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} id="quoteDiv">
                 <h2 id='quoteText'>"{responseData.quote}"</h2>
                 <h3 id='authorText'>{responseData.author}</h3>
             </motion.div>
-        </div>
       </div>
     );
-  };
-
-  export const variants = {
-    show: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        ease: "easeOut",
-        duration: 0.3
-      }
-    },
-    hide: {
-      y: -20,
-      opacity: 0
-    }
   };
   
   export default QuoteAPI;

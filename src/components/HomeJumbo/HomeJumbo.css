@@ -1,5 +1,6 @@
 #jumboWrapper {
     padding: 190px 0px 190px 0px;
+    border-radius: 0px 0px 20px 20px;
     text-align: center;
     margin-bottom: 40px;
     background-image: url('./assets/backgroundv5.png');
