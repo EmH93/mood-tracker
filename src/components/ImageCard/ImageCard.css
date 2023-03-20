@@ -13,11 +13,10 @@
   height: 95%;
 }
 
-@media screen and (max-width:700px){
+
+@media screen and (max-width: 600px){
   #pexelsCard {
       width: 90%;
       height: auto;
   }
-};
-
-
+}; 

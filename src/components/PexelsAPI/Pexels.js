@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { createClient } from 'pexels';
 import ImageCard from '../ImageCard/ImageCard';
-import Row from '../Row/Row';
+import ImageRow from '../ImageRow/ImageRow';
 
 
 const client = createClient('6qLANONW99ftTOugLLcsYBhJ7RTNLxm7eJfGSRuK9Q5cdJUoezl2DBSC');
@@ -48,11 +48,11 @@ function Pexels (){
 
     return (
         <div> 
-            <Row >
+            <ImageRow >
                 <ImageCard url={photoUrl1} />
                 <ImageCard url={photoUrl2} />
                 <ImageCard url={photoUrl3} /> 
-            </Row>
+            </ImageRow>
         </div>
           );
       
