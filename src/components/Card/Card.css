@@ -6,7 +6,9 @@
   margin-bottom: 50px;
   box-shadow: var(--card-box-shadow);
 
+ 
   }
+ 
  .avatar-container{
   display: flex;
   justify-content: center;
@@ -31,4 +33,30 @@
 }
 .selectedOption5 {
   background-color: var(--overjoyed);
+}
+.ant-card-actions li span{
+  
+
+border-top-right-radius: 0;
+border-top-left-radius: 0;
+ 
+}
+.ant-card-actions>li {
+  
+  margin: 0  !important;
+}
+
+.ant-card-actions svg {
+  height: 2em;
+  width: 2em;
+  color: black;
+
+  
+}
+.ant-card-actions svg:hover {
+  height: 2.5em;
+  width: 2.5em;
+  color: black;
+
+  
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { DeleteTwoTone } from '@ant-design/icons';
+import { DeleteOutlined } from '@ant-design/icons';
 import { Button, Space, Tooltip,Col, Row} from 'antd';
 import './ClearAllBtn.css'
 function ClearButton (props){
@@ -18,7 +18,7 @@ function ClearButton (props){
               <Space wrap>
                 
                 <Tooltip title="clear everything">
-                <Button id="clear-btn" onClick={props.onClick}  type="primary" icon={<DeleteTwoTone />}>
+                <Button id="clear-btn" onClick={props.onClick}  type="primary" icon={<DeleteOutlined/>}>
                   Clear
                 </Button>
 

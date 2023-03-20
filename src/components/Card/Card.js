@@ -1,11 +1,13 @@
 import React from "react";
-import { Avatar, Card} from "antd";
+import { Avatar, Card, Tooltip} from "antd";
+import {DeleteOutlined} from '@ant-design/icons';
 import "./Card.css";
 import stressed from './Moods/stressedv2.png';
 import happy from './Moods/happyv2.png';
 import sad from './Moods/sadv2.png';
 import chilled from './Moods/chilledv2.png';
 import overjoyed from './Moods/overjoyedv2.png';
+
 const { Meta } = Card;
 
 function MoodCard(props) {
@@ -27,7 +29,33 @@ function MoodCard(props) {
         }`}
         title={props.dateItem}
         bordered={true}
+      
+        actions={[
+          <Tooltip title="delete entry">
+              
+              <DeleteOutlined key="delete" onClick={props.onClick}
+              className={`card ${
+                props.title === "Stressed"
+                  ? "selectedOption1"
+                  : props.title === "Sad"
+                  ? "selectedOption2"
+                  : props.title === "Chilled"
+                  ? "selectedOption3"
+                  : props.title === "Happy"
+                  ? "selectedOption4"
+                  : props.title === "Overjoyed"
+                  ? "selectedOption5"
+                  : ""
+              }`}
+              
+              />
+          </Tooltip>
+         
+     
+]}
       >
+     
+  
         <Meta className="avatar-container"
           avatar={<Avatar className="avatar" src={`${
             props.title === "Stressed"

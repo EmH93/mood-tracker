@@ -11,7 +11,7 @@ function MoodDiary() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedMood, setSelectedMood] = useState("");
-  const [moodDiary, setMoodDiary] = useState("")
+  const [moodDiary, setMoodDiary] = useState("");
   const [diary, setDiary] = useState(moodDiary);
   
  
@@ -20,10 +20,17 @@ function MoodDiary() {
 
   useEffect(() => {
     const mood = localStorage.getItem("moodDiary") ? localStorage.getItem("moodDiary") : "{}";
-    setMoodDiary(JSON.parse(mood))
+    setMoodDiary(JSON.parse(mood));
     setDiary(moodDiary);
   }, [moodDiary]);
+  
+  const deleteCard = (key) => {
+    const obj = JSON.parse(localStorage.getItem("moodDiary"));
+    delete obj.key;
+    setMoodDiary(obj)
 
+
+  }
   const handleClearButton = () => {
     if(Object.keys(moodDiary).length > 0){
       
@@ -31,7 +38,7 @@ function MoodDiary() {
       const emptyDiary = localStorage.getItem("moodDiary")
       ? localStorage.getItem("moodDiary")
       : "{}";
-      setMoodDiary(emptyDiary)
+      setMoodDiary(emptyDiary);
      
     };
   
@@ -75,6 +82,7 @@ function MoodDiary() {
             setMood={setSelectedMood}
             setDate={setSelectedDate}
             setTime={setSelectedTime}
+            
           />
    
         </div>
