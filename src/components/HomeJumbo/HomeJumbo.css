@@ -21,8 +21,9 @@
 
 
 #homeTitle {
-    font-weight: 700 !important;
-    font-size: 65px !important;
+    font-weight: 400 !important;
+    font-family: 'Pacifico', cursive;
+    font-size: 80px;
     color: #ffffff;
     text-shadow: 2px 2px rgb(68, 68, 68);
 }
