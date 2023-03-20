@@ -1,5 +1,5 @@
 import React from "react";
-import { Avatar, Card, Col } from "antd";
+import { Avatar, Card} from "antd";
 import "./Card.css";
 import stressed from './Moods/stressedv2.png';
 import happy from './Moods/happyv2.png';
@@ -10,8 +10,7 @@ const { Meta } = Card;
 
 function MoodCard(props) {
   return (
-<div>
-    <Col span={4}>
+
       <Card
         id="moodCard" className={`card ${
           props.title === "Stressed"
@@ -26,7 +25,7 @@ function MoodCard(props) {
             ? "selectedOption5"
             : ""
         }`}
-        title={props.date}
+        title={props.dateItem}
         bordered={true}
       >
         <Meta className="avatar-container"
@@ -46,8 +45,7 @@ function MoodCard(props) {
           title={props.title}
         />
       </Card>
-    </Col>
-    </div>
+   
   );
 }
 
