@@ -98,7 +98,8 @@ function MoodDiary() {
       </Row>
       <Row gutter={[24,16]} justify="center">
           <Col>
-            <ClearButton onClick={handleClearButton}/>
+              
+            <ClearButton onClick={handleClearButton} obj={moodDiary}/>
           </Col>
       </Row>
         

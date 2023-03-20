@@ -7,9 +7,26 @@ function ClearButton (props){
   return (
    <div>
 
-  
+          {Object.keys(props.obj).length <= 0 ?
           <Space direction="vertical">
               <Space wrap>
+                
+                <Tooltip title="there's nothing to clear!">
+                <Button id="clear-btn" onClick={props.onClick}  type="primary" icon={<DeleteTwoTone />} disabled>
+                  Clear
+                </Button>
+
+                </Tooltip>
+                
+              
+              </Space>
+          
+          
+          </Space>
+          : 
+          <Space direction="vertical">
+              <Space wrap>
+                
                 <Tooltip title="clear everything">
                 <Button id="clear-btn" onClick={props.onClick}  type="primary" icon={<DeleteTwoTone />}>
                   Clear
@@ -22,6 +39,7 @@ function ClearButton (props){
           
           
           </Space>
+}
     
       
    </div>
