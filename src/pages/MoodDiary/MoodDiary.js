@@ -12,7 +12,7 @@ function MoodDiary() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedMood, setSelectedMood] = useState("");
-  const [moodDiary, setMoodDiary] = useState("");
+  const [moodDiary, setMoodDiary] = useState(JSON.parse(localStorage.getItem("moodDiary") || "{}"));
 
   useEffect(() => {
     //removed the code inside here because setting states inside useEffects caused an infite loop
@@ -25,8 +25,8 @@ function MoodDiary() {
       
       localStorage.removeItem("moodDiary");
       const emptyDiary = localStorage.getItem("moodDiary")
-      ? localStorage.getItem("moodDiary")
-      : "{}";
+      ? JSON.parse(localStorage.getItem("moodDiary"))
+      : JSON.parse("{}");
       setMoodDiary(emptyDiary);
      
     };
