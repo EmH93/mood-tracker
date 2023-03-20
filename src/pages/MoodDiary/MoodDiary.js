@@ -4,33 +4,22 @@ import Form from "../../components/FormFolder/Form";
 import moment from "moment";
 import "./MoodDiary.css";
 import { Row,Col,Divider} from "antd";
-import getKeyByValue from "../../utils/getValueHook";
+import getValueByKey from "../../utils/getValueHook";
 import ClearButton from "../../components/ClearAllBtn/ClearAllBtn";
+
 
 function MoodDiary() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedMood, setSelectedMood] = useState("");
   const [moodDiary, setMoodDiary] = useState("");
-  const [diary, setDiary] = useState(moodDiary);
-  
- 
-  
-
 
   useEffect(() => {
-    const mood = localStorage.getItem("moodDiary") ? localStorage.getItem("moodDiary") : "{}";
-    setMoodDiary(JSON.parse(mood));
-    setDiary(moodDiary);
+    //removed the code inside here because setting states inside useEffects caused an infite loop
   }, [moodDiary]);
   
-  const deleteCard = (key) => {
-    const obj = JSON.parse(localStorage.getItem("moodDiary"));
-    delete obj.key;
-    setMoodDiary(obj)
 
-
-  }
+ 
   const handleClearButton = () => {
     if(Object.keys(moodDiary).length > 0){
       
@@ -53,6 +42,7 @@ function MoodDiary() {
     moodObj[dateTime] = selectedMood;
 
     localStorage.setItem("moodDiary", JSON.stringify(moodObj));
+    setMoodDiary(moodObj)
     setSelectedDate("");
     setSelectedMood("");
     setSelectedTime("");
@@ -92,12 +82,12 @@ function MoodDiary() {
       <Row className="cards-wrapper" gutter={[16,24]} justify="center">
        
           
-              {Object.keys(diary).map((dateItem, index) => {
-                const objVal = getKeyByValue(diary, dateItem);
+              {Object.keys(moodDiary).map((datekey, index) => {
+                const objVal = getValueByKey(moodDiary, datekey);
               
                 return <Col className="gutter-row"> 
                 
-                          <MoodCard key={index} title={objVal} dateItem={dateItem} />
+                          <MoodCard key={index} title={objVal} dateItem={datekey} setDiary={setMoodDiary} />
                        </Col>
               })}
        

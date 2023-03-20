@@ -11,6 +11,20 @@ import overjoyed from './Moods/overjoyedv2.png';
 const { Meta } = Card;
 
 function MoodCard(props) {
+  const deleteEntry = () => {
+    const obj = JSON.parse(localStorage.getItem("moodDiary"));
+    if (Object.keys(obj).length >  0) {
+      console.log(obj)
+      const Itemkey = props.dateItem
+      delete(obj[Itemkey])
+      console.log(obj)
+      localStorage.setItem("moodDiary",JSON.stringify(obj))
+      props.setDiary(obj)
+
+    }
+ 
+
+  }
   return (
 
       <Card
@@ -33,7 +47,7 @@ function MoodCard(props) {
         actions={[
           <Tooltip title="delete entry">
               
-              <DeleteOutlined key="delete" onClick={props.onClick}
+              <DeleteOutlined key="delete" onClick={deleteEntry}
               className={`card ${
                 props.title === "Stressed"
                   ? "selectedOption1"
