@@ -8,11 +8,15 @@
 
  
   }
+  .ant-card-body {
+    border-bottom-left-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+  }
  
  .avatar-container{
   display: flex;
   justify-content: center;
-    align-items: center;
+  align-items: center;
  }
   .avatar{
     height: 100px;
@@ -33,6 +37,9 @@
 }
 .selectedOption5 {
   background-color: var(--overjoyed);
+}
+.ant-card-actions {
+  box-shadow: var(--card-box-shadow);
 }
 .ant-card-actions li span{
   
@@ -57,4 +64,14 @@ border-top-left-radius: 0;
   height: 2.5em;
   width: 2.5em;
   
+}
+.ant-card-meta-title {
+  white-space: pre-line !important;
+}
+
+.ant-card-head-title {
+
+  overflow:visible !important; 
+  white-space:normal !important;
+  text-overflow: ellipsis;
 }
