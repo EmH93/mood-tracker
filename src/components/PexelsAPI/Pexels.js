@@ -47,13 +47,11 @@ function Pexels (){
     },[])
 
     return (
-        <div> 
             <ImageRow >
                 <ImageCard url={photoUrl1} />
                 <ImageCard url={photoUrl2} />
                 <ImageCard url={photoUrl3} /> 
             </ImageRow>
-        </div>
           );
       
 }
