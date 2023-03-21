@@ -2,14 +2,14 @@
     background-color: #131C85; 
     border: none;
     color: white;
-    padding: 10px 60px;
+    padding: 10px 50px;
     text-align: center;
     text-decoration: none;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: 18px;
-    margin: 4px 2px;
+    margin: 2rem;
     cursor: pointer;
     border-radius: 8px;
     transition: background-color 0.3s ease;

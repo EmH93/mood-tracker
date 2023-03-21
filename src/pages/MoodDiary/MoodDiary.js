@@ -79,6 +79,8 @@ function MoodDiary() {
         
       </div>
       <Divider orientation="middle">Entries</Divider>
+     
+        
       <Row className="cards-wrapper" gutter={[16,24]} justify="center">
        
           
@@ -100,7 +102,7 @@ function MoodDiary() {
             <ClearButton onClick={handleClearButton} obj={moodDiary}/>
           </Col>
       </Row>
-        
+      
     </div>
   );
 }
