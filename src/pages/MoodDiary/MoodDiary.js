@@ -4,34 +4,30 @@ import Form from "../../components/FormFolder/Form";
 import moment from "moment";
 import "./MoodDiary.css";
 import { Row,Col,Divider} from "antd";
-import getKeyByValue from "../../utils/getValueHook";
+import getValueByKey from "../../utils/getValueHook";
 import ClearButton from "../../components/ClearAllBtn/ClearAllBtn";
+
 
 function MoodDiary() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedMood, setSelectedMood] = useState("");
-  const [moodDiary, setMoodDiary] = useState("")
-  const [diary, setDiary] = useState(moodDiary);
-  
- 
-  
-
+  const [moodDiary, setMoodDiary] = useState(JSON.parse(localStorage.getItem("moodDiary") || "{}"));
 
   useEffect(() => {
-    const mood = localStorage.getItem("moodDiary") ? localStorage.getItem("moodDiary") : "{}";
-    setMoodDiary(JSON.parse(mood))
-    setDiary(moodDiary);
+    //removed the code inside here because setting states inside useEffects caused an infite loop
   }, [moodDiary]);
+  
 
+ 
   const handleClearButton = () => {
     if(Object.keys(moodDiary).length > 0){
       
       localStorage.removeItem("moodDiary");
       const emptyDiary = localStorage.getItem("moodDiary")
-      ? localStorage.getItem("moodDiary")
-      : "{}";
-      setMoodDiary(emptyDiary)
+      ? JSON.parse(localStorage.getItem("moodDiary"))
+      : JSON.parse("{}");
+      setMoodDiary(emptyDiary);
      
     };
   
@@ -46,6 +42,7 @@ function MoodDiary() {
     moodObj[dateTime] = selectedMood;
 
     localStorage.setItem("moodDiary", JSON.stringify(moodObj));
+    setMoodDiary(moodObj)
     setSelectedDate("");
     setSelectedMood("");
     setSelectedTime("");
@@ -75,6 +72,7 @@ function MoodDiary() {
             setMood={setSelectedMood}
             setDate={setSelectedDate}
             setTime={setSelectedTime}
+            
           />
    
         </div>
@@ -84,12 +82,12 @@ function MoodDiary() {
       <Row className="cards-wrapper" gutter={[16,24]} justify="center">
        
           
-              {Object.keys(diary).map((dateItem, index) => {
-                const objVal = getKeyByValue(diary, dateItem);
+              {Object.keys(moodDiary).map((datekey, index) => {
+                const objVal = getValueByKey(moodDiary, datekey);
               
                 return <Col className="gutter-row"> 
                 
-                          <MoodCard key={index} title={objVal} dateItem={dateItem} />
+                          <MoodCard key={index} title={objVal} dateItem={datekey} setDiary={setMoodDiary} />
                        </Col>
               })}
        
