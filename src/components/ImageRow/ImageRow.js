@@ -1,5 +1,5 @@
 import React from "react";
-import './imageRow.css';
+import './ImageRow.css';
 
 function ImageRow(props) {
   return <div id="imageRow">{props.children}</div>;
