@@ -31,10 +31,10 @@ function QuoteAPI() {
     
       return (
         <div id="quoteWrapper" className='container-fluid'>
-        <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }} id="quoteDiv">
-                <h2 id='quoteText'>"{responseData.quote}"</h2>
-                <h3 id='authorText'>{responseData.author}</h3>
-            </motion.div>
+        <div id="quoteDiv">
+                <motion.h2 initial={{ opacity: 0, y: 50}} animate={{ opacity: 1, y: 0}} key={responseData.quote} id='quoteText'>"{responseData.quote}"</motion.h2>
+                <motion.h3 initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.5 }} key={responseData.author} id='authorText'>{responseData.author}</motion.h3>
+            </div>
       </div>
     );
   };
