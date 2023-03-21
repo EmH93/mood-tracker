@@ -58,7 +58,7 @@ function MoodDiary() {
         </Col> 
           
           <Col className="gutter-row" xs={14} xl={24} > 
-          <p className="form-label" >Select the date and your mood from the options below</p>
+          <p className="form-label" >Select the date, the time and your mood from the options below</p>
         </Col> 
         </Row>
       <div className="mood-container">

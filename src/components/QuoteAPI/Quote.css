@@ -3,8 +3,8 @@
     text-align: center !important;
     width: 60% !important;
     margin: auto !important;
-    background-color: rgba(255, 255, 255, 0.45);
-    border-radius: 30px;
+    background-color: rgba(255, 255, 255, 0.45) !important;
+    border-radius: 30px !important;
 }
 
 #quoteWrapper {
@@ -19,8 +19,8 @@
 }
 
 #authorText {
-    font-size: 22px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-size: 28px;
+    font-family: 'Pacifico', cursive;
     color: #5a58d1;
 }
 
