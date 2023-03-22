@@ -3,7 +3,7 @@ import MoodCard from "../../components/Card/Card";
 import Form from "../../components/FormFolder/Form";
 import moment from "moment";
 import "./MoodDiary.css";
-import { Row, Col, Divider, Alert} from "antd";
+import { Row, Col, Divider, Alert } from "antd";
 import getValueByKey from "../../utils/getValueHook";
 import ClearButton from "../../components/ClearAllBtn/ClearAllBtn";
 
@@ -18,14 +18,14 @@ function MoodDiary() {
 
   useEffect(() => {
     //removed the code inside here because setting states inside useEffects caused an infite loop
-  }, [moodDiary,visibleAlert]);
+  }, [moodDiary, visibleAlert]);
 
-  const closeAlert = () =>{
+  const closeAlert = () => {
     setSelectedDate("");
     setSelectedMood("");
     setSelectedTime("");
     setVisibleAlert(false);
-  }
+  };
 
   const handleClearButton = () => {
     if (Object.keys(moodDiary).length > 0) {
@@ -39,30 +39,34 @@ function MoodDiary() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
+    const currentTimeHours = moment().toObject().hours;
+    const currentTimeMinutes = moment().toObject().minutes;
     const currentDate = moment().format("YYYY-MM-DD");
     const inputDate = moment(selectedDate).format("YYYY-MM-DD");
     console.log(currentDate, inputDate);
 
-    if (
-      moment(inputDate).isBefore(currentDate) ||
-      moment(inputDate).isSame(currentDate)
-    ) {
-      let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
-
-      let dateTime =
+    let dateTime =
         moment(selectedDate).format("dddd, DD-MM-YYYY") +
         "  -  " +
         selectedTime;
 
-      moodObj[dateTime] = selectedMood;
+      const inputHour = parseInt(selectedTime.substring(0, 2));
+      const inputMinute = parseInt(selectedTime.substring(3, 5));
 
+    if (
+      (moment(inputDate).isBefore(currentDate) ||
+        moment(inputDate).isSame(currentDate)) &&
+      ((inputHour <= currentTimeHours) &&
+      (inputMinute <= currentTimeMinutes))
+    ) {
+      let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
+      moodObj[dateTime] = selectedMood;
       localStorage.setItem("moodDiary", JSON.stringify(moodObj));
       setMoodDiary(moodObj);
       setSelectedDate("");
       setSelectedMood("");
       setSelectedTime("");
     } else {
-      // alert("The input date is in the future. Please enter a valid date!");
       setVisibleAlert(true);
     }
   };
@@ -82,7 +86,7 @@ function MoodDiary() {
       </Row>
       <div>
         <div className="alertModal">
-        {visibleAlert && (
+          {visibleAlert && (
             <Alert
               message="The input date is in the future. Please enter a valid date!"
               type="warning"
@@ -91,10 +95,8 @@ function MoodDiary() {
             />
           )}
         </div>
-  
       </div>
       <div className="mood-container">
-        
         <div>
           <Form
             handleFormSubmit={handleFormSubmit}
