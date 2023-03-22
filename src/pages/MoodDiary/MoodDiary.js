@@ -3,7 +3,7 @@ import MoodCard from "../../components/Card/Card";
 import Form from "../../components/FormFolder/Form";
 import moment from "moment";
 import "./MoodDiary.css";
-import { Row, Col, Divider} from "antd";
+import { Row, Col, Divider, Alert } from "antd";
 import getValueByKey from "../../utils/getValueHook";
 import ClearButton from "../../components/ClearAllBtn/ClearAllBtn";
 
@@ -11,13 +11,21 @@ function MoodDiary() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedMood, setSelectedMood] = useState("");
+  const [visibleAlert, setVisibleAlert] = useState(false);
   const [moodDiary, setMoodDiary] = useState(
     JSON.parse(localStorage.getItem("moodDiary") || "{}")
   );
 
   useEffect(() => {
     //removed the code inside here because setting states inside useEffects caused an infite loop
-  }, [moodDiary]);
+  }, [moodDiary, visibleAlert]);
+
+  const closeAlert = () => {
+    setSelectedDate("");
+    setSelectedMood("");
+    setSelectedTime("");
+    setVisibleAlert(false);
+  };
 
   const handleClearButton = () => {
     if (Object.keys(moodDiary).length > 0) {
@@ -35,37 +43,36 @@ function MoodDiary() {
     const currentTimeMinutes = moment().toObject().minutes;
     const currentDate = moment().format("YYYY-MM-DD");
     const inputDate = moment(selectedDate).format("YYYY-MM-DD");
- 
-      let dateTime =
+    console.log(currentDate, inputDate);
+
+    let dateTime =
         moment(selectedDate).format("dddd, DD-MM-YYYY") +
         "  -  " +
         selectedTime;
-     
-        const inputHour = parseInt(selectedTime.substring(0,2));
-        const inputMinute = parseInt(selectedTime.substring(3,5));
 
+      const inputHour = parseInt(selectedTime.substring(0, 2));
+      const inputMinute = parseInt(selectedTime.substring(3, 5));
 
-    if (((moment(inputDate).isBefore(currentDate)) || (moment(inputDate).isSame(currentDate))) && ((inputHour <= currentTimeHours) && (inputMinute <= currentTimeMinutes))){
-        
-          let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
-          moodObj[dateTime] = selectedMood;
-
-          localStorage.setItem("moodDiary", JSON.stringify(moodObj));
-          setMoodDiary(moodObj);
-          setSelectedDate("");
-          setSelectedMood("");
-          setSelectedTime("");
-          
-        
-        } else {
-          console.log("invalid time");
-          alert("The input date is in the future. Please enter a valid date!");  
-        }
+    if (
+      (moment(inputDate).isBefore(currentDate) ||
+        moment(inputDate).isSame(currentDate)) &&
+      ((inputHour <= currentTimeHours) &&
+      (inputMinute <= currentTimeMinutes))
+    ) {
+      let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
+      moodObj[dateTime] = selectedMood;
+      localStorage.setItem("moodDiary", JSON.stringify(moodObj));
+      setMoodDiary(moodObj);
+      setSelectedDate("");
+      setSelectedMood("");
+      setSelectedTime("");
+    } else {
+      setVisibleAlert(true);
+    }
   };
 
   return (
     <div className="mood-wrapper">
-
       <Row className="form-label-container" justify="center">
         <Col className="gutter-row" xs={13} xl={24}>
           <h3 className="mood-page-heading">Mood Diary</h3>
@@ -77,6 +84,18 @@ function MoodDiary() {
           </p>
         </Col>
       </Row>
+      <div>
+        <div className="alertModal">
+          {visibleAlert && (
+            <Alert
+              message="The input date is in the future. Please enter a valid date!"
+              type="warning"
+              closable
+              onClose={closeAlert}
+            />
+          )}
+        </div>
+      </div>
       <div className="mood-container">
         <div>
           <Form
@@ -107,14 +126,12 @@ function MoodDiary() {
             </Col>
           );
         })}
-
       </Row>
       <Row gutter={[24, 16]} justify="center">
         <Col>
           <ClearButton onClick={handleClearButton} obj={moodDiary} />
         </Col>
       </Row>
-
     </div>
   );
 }
