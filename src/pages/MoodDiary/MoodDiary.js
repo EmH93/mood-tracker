@@ -3,7 +3,7 @@ import MoodCard from "../../components/Card/Card";
 import Form from "../../components/FormFolder/Form";
 import moment from "moment";
 import "./MoodDiary.css";
-import { Row, Col, Divider} from "antd";
+import { Row, Col, Divider, Alert, Space } from "antd";
 import getValueByKey from "../../utils/getValueHook";
 import ClearButton from "../../components/ClearAllBtn/ClearAllBtn";
 
@@ -11,6 +11,7 @@ function MoodDiary() {
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedTime, setSelectedTime] = useState("");
   const [selectedMood, setSelectedMood] = useState("");
+  const [visibleAlert, setVisibleAlert] = useState(false);
   const [moodDiary, setMoodDiary] = useState(
     JSON.parse(localStorage.getItem("moodDiary") || "{}")
   );
@@ -33,8 +34,11 @@ function MoodDiary() {
 
     const currentDate = moment().format("YYYY-MM-DD");
     const inputDate = moment(selectedDate).format("YYYY-MM-DD");
-   
-    if ((moment(inputDate).isBefore(currentDate)) || moment(inputDate).isSame(currentDate)) {
+
+    if (
+      moment(inputDate).isBefore(currentDate) ||
+      moment(inputDate).isSame(currentDate)
+    ) {
       let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
 
       let dateTime =
@@ -50,13 +54,13 @@ function MoodDiary() {
       setSelectedMood("");
       setSelectedTime("");
     } else {
-      alert("The input date is in the future. Please enter a valid date!");  
+      // alert("The input date is in the future. Please enter a valid date!");
+      setVisibleAlert(true);
     }
   };
 
   return (
     <div className="mood-wrapper">
-
       <Row className="form-label-container" justify="center">
         <Col className="gutter-row" xs={13} xl={24}>
           <h3 className="mood-page-heading">Mood Diary</h3>
@@ -68,7 +72,20 @@ function MoodDiary() {
           </p>
         </Col>
       </Row>
+      <div>
+        <div className="alertModal">
+        {visibleAlert && (
+            <Alert
+              message="The input date is in the future. Please enter a valid date!"
+              type="warning"
+              closable
+            />
+          )}
+        </div>
+  
+      </div>
       <div className="mood-container">
+        
         <div>
           <Form
             handleFormSubmit={handleFormSubmit}
@@ -98,14 +115,12 @@ function MoodDiary() {
             </Col>
           );
         })}
-
       </Row>
       <Row gutter={[24, 16]} justify="center">
         <Col>
           <ClearButton onClick={handleClearButton} obj={moodDiary} />
         </Col>
       </Row>
-
     </div>
   );
 }
