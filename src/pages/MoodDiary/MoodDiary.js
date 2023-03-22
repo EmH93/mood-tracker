@@ -82,6 +82,7 @@ function MoodDiary() {
         </div>
       </div>
       <Divider orientation="middle">Entries</Divider>
+
       <Row className="cards-wrapper" gutter={[16, 24]} justify="center">
         {Object.keys(moodDiary).map((datekey, index) => {
           const objVal = getValueByKey(moodDiary, datekey);
@@ -97,12 +98,14 @@ function MoodDiary() {
             </Col>
           );
         })}
+
       </Row>
       <Row gutter={[24, 16]} justify="center">
         <Col>
           <ClearButton onClick={handleClearButton} obj={moodDiary} />
         </Col>
       </Row>
+
     </div>
   );
 }
