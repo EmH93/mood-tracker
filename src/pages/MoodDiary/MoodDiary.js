@@ -3,7 +3,7 @@ import MoodCard from "../../components/Card/Card";
 import Form from "../../components/FormFolder/Form";
 import moment from "moment";
 import "./MoodDiary.css";
-import { Row, Col, Divider, Alert, Space } from "antd";
+import { Row, Col, Divider } from "antd";
 import getValueByKey from "../../utils/getValueHook";
 import ClearButton from "../../components/ClearAllBtn/ClearAllBtn";
 
@@ -31,27 +31,36 @@ function MoodDiary() {
   const handleFormSubmit = (event) => {
     event.preventDefault();
 
+    const currentTimeHours = moment().toObject().hours;
+    const currentTimeMinutes = moment().toObject().minutes;
     const currentDate = moment().format("YYYY-MM-DD");
     const inputDate = moment(selectedDate).format("YYYY-MM-DD");
-   
-    if ((moment(inputDate).isBefore(currentDate)) || moment(inputDate).isSame(currentDate)) {
-      let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
-
+ 
       let dateTime =
         moment(selectedDate).format("dddd, DD-MM-YYYY") +
         "  -  " +
         selectedTime;
+     
+        const inputHour = parseInt(selectedTime.substring(0,2));
+        const inputMinute = parseInt(selectedTime.substring(3,5));
 
-      moodObj[dateTime] = selectedMood;
 
-      localStorage.setItem("moodDiary", JSON.stringify(moodObj));
-      setMoodDiary(moodObj);
-      setSelectedDate("");
-      setSelectedMood("");
-      setSelectedTime("");
-    } else {
-      alert("The input date is in the future. Please enter a valid date!");  
-    }
+    if (((moment(inputDate).isBefore(currentDate)) || (moment(inputDate).isSame(currentDate))) && ((inputHour <= currentTimeHours) && (inputMinute <= currentTimeMinutes))){
+        
+          let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
+          moodObj[dateTime] = selectedMood;
+
+          localStorage.setItem("moodDiary", JSON.stringify(moodObj));
+          setMoodDiary(moodObj);
+          setSelectedDate("");
+          setSelectedMood("");
+          setSelectedTime("");
+          
+        
+        } else {
+          console.log("invalid time");
+          alert("The input date is in the future. Please enter a valid date!");  
+        }
   };
 
   return (
