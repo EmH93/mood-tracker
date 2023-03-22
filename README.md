@@ -1,4 +1,4 @@
-# <Mood-tracker>
+# Mood tracker
 
 ## Description
 
