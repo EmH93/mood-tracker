@@ -3,7 +3,7 @@ import MoodCard from "../../components/Card/Card";
 import Form from "../../components/FormFolder/Form";
 import moment from "moment";
 import "./MoodDiary.css";
-import { Row, Col, Divider, Alert, Space } from "antd";
+import { Row, Col, Divider, Alert} from "antd";
 import getValueByKey from "../../utils/getValueHook";
 import ClearButton from "../../components/ClearAllBtn/ClearAllBtn";
 
@@ -18,7 +18,14 @@ function MoodDiary() {
 
   useEffect(() => {
     //removed the code inside here because setting states inside useEffects caused an infite loop
-  }, [moodDiary]);
+  }, [moodDiary,visibleAlert]);
+
+  const closeAlert = () =>{
+    setSelectedDate("");
+    setSelectedMood("");
+    setSelectedTime("");
+    setVisibleAlert(false);
+  }
 
   const handleClearButton = () => {
     if (Object.keys(moodDiary).length > 0) {
@@ -34,6 +41,7 @@ function MoodDiary() {
 
     const currentDate = moment().format("YYYY-MM-DD");
     const inputDate = moment(selectedDate).format("YYYY-MM-DD");
+    console.log(currentDate, inputDate);
 
     if (
       moment(inputDate).isBefore(currentDate) ||
@@ -79,6 +87,7 @@ function MoodDiary() {
               message="The input date is in the future. Please enter a valid date!"
               type="warning"
               closable
+              onClose={closeAlert}
             />
           )}
         </div>
