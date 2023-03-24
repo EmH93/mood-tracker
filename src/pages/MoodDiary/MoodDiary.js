@@ -53,12 +53,8 @@ function MoodDiary() {
       const inputHour = parseInt(selectedTime.substring(0, 2));
       const inputMinute = parseInt(selectedTime.substring(3, 5));
 
-    if (
-      (moment(inputDate).isBefore(currentDate) ||
-        moment(inputDate).isSame(currentDate)) &&
-      ((inputHour <= currentTimeHours) &&
-      (inputMinute <= currentTimeMinutes))
-    ) {
+
+    if (((moment(inputDate).isBefore(currentDate)) || ((moment(inputDate).isSame(currentDate))) && ((inputHour <= currentTimeHours) && (inputMinute <= currentTimeMinutes)))) {
       let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
       moodObj[dateTime] = selectedMood;
       localStorage.setItem("moodDiary", JSON.stringify(moodObj));
@@ -69,6 +65,7 @@ function MoodDiary() {
     } else {
       setVisibleAlert(true);
     }
+
   };
 
   return (
