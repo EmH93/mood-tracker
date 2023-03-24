@@ -45,7 +45,7 @@ function MoodDiary() {
         const inputMinute = parseInt(selectedTime.substring(3,5));
 
 
-    if (((moment(inputDate).isBefore(currentDate)) || (moment(inputDate).isSame(currentDate))) && ((inputHour <= currentTimeHours) && (inputMinute <= currentTimeMinutes))){
+    if (((moment(inputDate).isBefore(currentDate)) || ((moment(inputDate).isSame(currentDate))) && ((inputHour <= currentTimeHours) && (inputMinute <= currentTimeMinutes)))){
         
           let moodObj = JSON.parse(localStorage.getItem("moodDiary") || "{}");
           moodObj[dateTime] = selectedMood;
